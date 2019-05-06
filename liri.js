@@ -94,59 +94,59 @@ function spotifyThis(song) {
 // If user doesn't type movie, output "Mr. Nobody"
 
 function movieThis(movie) {
-    // If user doesn't type movie, output "Mr. Nobody"
-    if (!movie) {
-      movie = "Mr. Nobody";
-      console.log(
-        "If you haven't watched Mr. Nobody, then you should: http://www.imdb.com/title/tt0485947/"
-      );
-      console.log("It's on Netflix!");
-    }
-  
-    axios
-      .get("http://www.omdbapi.com/?apikey=trilogy&t=" + movie)
-      .then(function(data) {
-        var results = `
-              Title: ${data.data.Title}
-              Year: ${data.data.Year}
-              IMDB rating: ${data.data.Rated}
-              Rotten Tomatoes rating: ${data.data.Ratings[1].Value}
-              Country: ${data.data.Country}
-              Language: ${data.data.Language}
-              Plot: ${data.data.Plot}
-              Actors: ${data.data.Actors}
-              `;
-  
-        console.log(results);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+  // If user doesn't type movie, output "Mr. Nobody"
+  if (!movie) {
+    movie = "Mr. Nobody";
+    console.log(
+      "If you haven't watched Mr. Nobody, then you should: http://www.imdb.com/title/tt0485947/"
+    );
+    console.log("It's on Netflix!");
   }
-  
-  // It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
-  // Take the text inside random.txt and use it call one of LIRI's commands
-  function doThis() {
-    fs.readFile("random.txt", "utf8", function(err, data) {
-      data = data.split(",");
-      var userInput = data[0];
-      var userQuery = data[1];
-  
-      userCommand(userInput, userQuery);
-  
-      // switch (userInput) {
-      //     case "concert-this":
-      //         concertThis(userQuery)
-      //         break;
-      //     case "spotify-this-song":
-      //         spotifyThis(userQuery)
-      //         break;
-      //     case "movie-this":
-      //         movieThis(userQuery)
-      //         break;
-      //     default:
-      //         break;
-  
-      // }
+
+  axios
+    .get("http://www.omdbapi.com/?apikey=trilogy&t=" + movie)
+    .then(function(data) {
+      var results = `
+            Title: ${data.data.Title}
+            Year: ${data.data.Year}
+            IMDB rating: ${data.data.Rated}
+            Rotten Tomatoes rating: ${data.data.Ratings[1].Value}
+            Country: ${data.data.Country}
+            Language: ${data.data.Language}
+            Plot: ${data.data.Plot}
+            Actors: ${data.data.Actors}
+            `;
+
+      console.log(results);
+    })
+    .catch(function(error) {
+      console.log(error);
     });
-  }
+}
+
+// It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
+// Take the text inside random.txt and use it call one of LIRI's commands
+function doThis() {
+  fs.readFile("random.txt", "utf8", function(err, data) {
+    data = data.split(",");
+    var userInput = data[0];
+    var userQuery = data[1];
+
+    userCommand(userInput, userQuery);
+
+    // switch (userInput) {
+    //     case "concert-this":
+    //         concertThis(userQuery)
+    //         break;
+    //     case "spotify-this-song":
+    //         spotifyThis(userQuery)
+    //         break;
+    //     case "movie-this":
+    //         movieThis(userQuery)
+    //         break;
+    //     default:
+    //         break;
+
+    // }
+  });
+}
