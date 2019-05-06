@@ -40,7 +40,9 @@ function concertThis(artist) {
     });
 }
 ```
-##### node liri.js concert-this mitski
+##### node liri.js concert-this
+![Image of spotifyThis](https://drive.google.com/file/d/10jWWx7B7NMQr8JmHlmKK86lBzAeXU3WP/view?usp=sharing)
+
    
 
 ## Spotify
@@ -104,6 +106,9 @@ function movieThis(movie) {
 }
 ```
 ##### node liri.js movie-this the notebook
+
+![Image of spotifyThis](https://drive.google.com/file/d/1ujnjdkNSD82mr7rTsMQLjd5azbDNX3uk/view?usp=sharing
+)
 
 
 
